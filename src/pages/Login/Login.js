@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
@@ -7,6 +8,8 @@ const Login = () => {
     const [password, onChangePassword] = React.useState('');
     const [full, onChangeFull] = React.useState(false)
     const [Msg, onChangeMsg] = React.useState('');
+
+    const navigation = useNavigation();
 
     useEffect(() => {
         if (title !== '' && password !== '') {
@@ -44,7 +47,7 @@ const Login = () => {
             </View>
             <View style={styles.join}>
                 <Text style={styles.jointext}>컬티케어가 처음이신가요?</Text>
-                <TouchableOpacity onPress={() => { }}>
+                <TouchableOpacity onPress={() => { navigation.navigate('Join') }}>
                     <Text style={styles.goingjoin}>회원가입</Text>
                 </TouchableOpacity>
             </View>
