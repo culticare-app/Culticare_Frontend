@@ -2,11 +2,12 @@ import React, { useEffect } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import DropdownComponent from './JoinDropdown';
+import CustomText from '../../components/CustomText';
 
 const JoinBtn = ({ AllOk }) => {
     return (
         <TouchableOpacity style={AllOk ? styles.joinbtntrue : styles.joinbtn} onPress={() => { }}>
-            <Text style={styles.joinbtntext}>가입하기</Text>
+            <CustomText style={styles.joinbtntext}>가입하기</CustomText>
         </TouchableOpacity>
     )
 }
@@ -101,7 +102,7 @@ const JoinForm = () => {
                         style={styles.inputbox}
                     />
                     <TouchableOpacity style={phone ? styles.inputbtnfull : styles.inputbtn} onPress={() => { }}>
-                        <Text style={styles.textbtn}>인증번호 받기</Text>
+                        <CustomText style={styles.textbtn}>인증번호 받기</CustomText>
                     </TouchableOpacity>
                 </View>
 
@@ -115,16 +116,16 @@ const JoinForm = () => {
                                 placeholder='인증번호'
                                 style={phonecheckmsg ? styles.inputboxerror : styles.inputbox}
                             />
-                            <Text style={phonecheckok ? styles.ok : styles.none}>인증 성공</Text>
+                            <CustomText style={phonecheckok ? styles.ok : styles.none}>인증 성공</CustomText>
                         </View>
                         <TouchableOpacity style={phonecheck ? styles.inputbtnfull : styles.inputbtn} onPress={() => { checkPhone() }}>
-                            <Text style={styles.textbtn}>인증하기</Text>
+                            <CustomText style={styles.textbtn}>인증하기</CustomText>
                         </TouchableOpacity>
                     </View>
                     {phonecheckmsg ? (
-                        <Text style={styles.errormsg}>{phonecheckmsg}</Text>
+                        <CustomText style={styles.errormsg}>{phonecheckmsg}</CustomText>
                     ) : (
-                        <Text style={styles.msg}></Text>
+                        <CustomText style={styles.msg}></CustomText>
                     )}
                 </View>
 
@@ -148,16 +149,16 @@ const JoinForm = () => {
                                 placeholder='아이디'
                                 style={userIdmsg ? styles.inputboxerror : styles.inputbox}
                             />
-                            <Text style={userIdcheck ? styles.ok : styles.none}>사용 가능</Text>
+                            <CustomText style={userIdcheck ? styles.ok : styles.none}>사용 가능</CustomText>
                         </View>
                         <TouchableOpacity style={userId ? styles.inputbtnfull : styles.inputbtn} onPress={checkUserId}>
-                            <Text style={styles.textbtn}>중복 확인</Text>
+                            <CustomText style={styles.textbtn}>중복 확인</CustomText>
                         </TouchableOpacity>
                     </View>
                     {userIdmsg ? (
-                        <Text style={styles.errormsg}>{userIdmsg}</Text>
+                        <CustomText style={styles.errormsg}>{userIdmsg}</CustomText>
                     ) : (
-                        <Text style={styles.msg}></Text>
+                        <CustomText style={styles.msg}></CustomText>
                     )}
                 </View>
 
@@ -181,7 +182,7 @@ const JoinForm = () => {
                             style={passwordmsg ? styles.inputboxerror : styles.inputbox}
                         />
                     </View>
-                    <Text style={passwordmsg ? styles.errormsg : styles.msg}>{passwordmsg ? passwordmsg : '영문 대⋅소문자+숫자+특수문자 조합으로 8-16자 입력해주세요.'}</Text>
+                    <CustomText style={passwordmsg ? styles.errormsg : styles.msg}>{passwordmsg ? passwordmsg : '영문 대⋅소문자+숫자+특수문자 조합으로 8-16자 입력해주세요.'}</CustomText>
                 </View>
             </View>
             <DropdownComponent onChangeCountry={onChangeCountry} />
@@ -193,7 +194,7 @@ const JoinForm = () => {
 const Join = () => {
     return (
         <View style={styles.JoinWrap}>
-            <Text style={styles.headerText}>회원가입</Text>
+            <CustomText style={styles.headerText}>회원가입</CustomText>
             <JoinForm />
         </View>
     );

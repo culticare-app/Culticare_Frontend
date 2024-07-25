@@ -9,7 +9,7 @@ const data = [
     { label: '러시아', value: '러시아' },
 ];
 
-const DropdownComponent = ({onChangeCountry}) => {
+const DropdownComponent = ({ onChangeCountry }) => {
     const [value, setValue] = React.useState('');
     const [isFocus, setIsFocus] = React.useState(false);
 
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         padding: 12,
         borderWidth: 2,
         borderColor: '#ECECEC',
-        paddingTop: 6
+        paddingTop: 9
     },
     icon: {
         marginRight: 5,
@@ -65,13 +65,17 @@ const styles = StyleSheet.create({
     },
     textItem: {
         flex: 1,
-        fontSize: 16,
+        fontSize: 14,
     },
     placeholderStyle: {
+        fontFamily: 'Pretendard-Regular',
+        color: '#303030',
         fontSize: 14,
     },
     selectedTextStyle: {
-        fontSize: 16,
+        fontFamily: 'Pretendard-Regular',
+        color: '#303030',
+        fontSize: 15,
     },
     iconStyle: {
         width: 25,
@@ -79,7 +83,9 @@ const styles = StyleSheet.create({
         marginTop: 4
     },
     inputSearchStyle: {
+        fontFamily: 'Pretendard-Regular',
+        color: '#303030',
         height: 40,
-        fontSize: 16,
+        fontSize: 15,
     },
 });

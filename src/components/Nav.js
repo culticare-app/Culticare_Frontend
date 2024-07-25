@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import CustomText from './CustomText';
 
 const Nav = () => {
     const navigation = useNavigation();
@@ -10,23 +11,23 @@ const Nav = () => {
         <View style={styles.navWrap}>
             <TouchableOpacity style={styles.nav} onPress={() => {navigation.navigate(''); onChangePage()}} activeOpacity={0.7}>
                 <Image style={styles.navimg} source={require('../assets/images/nav/record.png')} />
-                <Text style={styles.navtest}>감정기록</Text>
+                <CustomText style={styles.navtest}>감정기록</CustomText>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.nav} onPress={() => {navigation.navigate(''); onChangePage()}} activeOpacity={0.7}>
+            <TouchableOpacity style={styles.nav} onPress={() => {navigation.navigate('Info'); onChangePage()}} activeOpacity={0.7}>
                 <Image style={styles.navimg} source={require('../assets/images/nav/checkinfo.png')} />
-                <Text style={styles.navtest}>정보 조회</Text>
+                <CustomText style={styles.navtest}>정보 조회</CustomText>
             </TouchableOpacity>
             <TouchableOpacity style={styles.nav} onPress={() => {navigation.navigate('Join'); onChangePage()}} activeOpacity={0.7}>
                 <Image style={styles.navimg} source={require('../assets/images/nav/checkculture.png')} />
-                <Text style={styles.navtest}>문화 탐구</Text>
+                <CustomText style={styles.navtest}>문화 탐구</CustomText>
             </TouchableOpacity>
             <TouchableOpacity style={styles.nav} onPress={() => {navigation.navigate('Community'); onChangePage('Community')}} activeOpacity={0.7}>
                 <Image style={styles.navimg} source={page === 'Community' ?  require('../assets/images/nav/communitycheck.png') : require('../assets/images/nav/community.png')} />
-                <Text style={styles.navtest}>커뮤니티</Text>
+                <CustomText style={styles.navtest}>커뮤니티</CustomText>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.nav} onPress={() => {navigation.navigate('Login'); onChangePage()}} activeOpacity={0.7}>
+            <TouchableOpacity style={styles.nav} onPress={() => {navigation.navigate('Mypage'); onChangePage()}} activeOpacity={0.7}>
                 <Image style={styles.navimg} source={require('../assets/images/nav/mypage.png')} />
-                <Text style={styles.navtest}>마이페이지</Text>
+                <CustomText style={styles.navtest}>마이페이지</CustomText>
             </TouchableOpacity>
         </View>
     );
@@ -40,10 +41,10 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'space-around',
         alignItems: 'center',
-        position: 'absolute', // 수정: 'fixed' 대신 'absolute' 사용
+        position: 'absolute',
         bottom: 0,
         padding: 10,
-        backgroundColor: 'white', // 배경색 추가
+        backgroundColor: 'white',
     },
     nav: {
         alignItems: 'center',

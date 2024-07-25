@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
+import CustomText from '../../components/CustomText';
 
 const Login = () => {
     const [title, onChangeTitle] = React.useState('');
@@ -26,8 +27,8 @@ const Login = () => {
     return (
         <View style={styles.LoginWrap}>
             <View style={styles.Login}>
-                <Text style={styles.cant}>입력하신 아이디/비밀번호와{"\n"}
-                    일치하는 로그인 정보가 없습니다.</Text>
+                <CustomText style={styles.cant}>입력하신 아이디/비밀번호와{"\n"}
+                    일치하는 로그인 정보가 없습니다.</CustomText>
                 <TextInput
                     style={styles.inputtitle}
                     onChangeText={onChangeTitle}
@@ -42,13 +43,13 @@ const Login = () => {
                     secureTextEntry={true}
                 />
                 <TouchableOpacity style={full ? styles.loginbtnfull : styles.loginbtn} onPress={() => { }}>
-                    <Text style={styles.buttonText}>로그인</Text>
+                    <CustomText style={styles.buttonText}>로그인</CustomText>
                 </TouchableOpacity>
             </View>
             <View style={styles.join}>
-                <Text style={styles.jointext}>컬티케어가 처음이신가요?</Text>
+                <CustomText style={styles.jointext}>컬티케어가 처음이신가요?</CustomText>
                 <TouchableOpacity onPress={() => { navigation.navigate('Join') }}>
-                    <Text style={styles.goingjoin}>회원가입</Text>
+                    <CustomText style={styles.goingjoin}>회원가입</CustomText>
                 </TouchableOpacity>
             </View>
         </View>

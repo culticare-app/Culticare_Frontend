@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import CustomText from '../../components/CustomText';
 
 const CommSearch = () => {
     const navigation = useNavigation();
@@ -23,7 +24,7 @@ const CommSearch = () => {
                     />
                 </View>
                 <TouchableOpacity style={styles.searchbtn} onPress={() => { navigation.navigate('Community') }}>
-                    <Text style={styles.btnText}>취소</Text>
+                    <CustomText style={styles.btnText}>취소</CustomText>
                 </TouchableOpacity>
             </View>
         </View>

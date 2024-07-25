@@ -3,6 +3,7 @@ import { StyleSheet, View, Image, Text, ScrollView, Button, Alert } from 'react-
 import Nav from '../../components/Nav';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import CustomText from '../../components/CustomText';
 
 const Cate = ({ onChangeCate, onChangeChoose }) => {
     const categories = [
@@ -17,7 +18,7 @@ const Cate = ({ onChangeCate, onChangeChoose }) => {
     return (
         <View style={cates.cate_wrap}>
             <View style={cates.header}>
-                <Text style={cates.headertext}>카테고리</Text>
+                <CustomText style={cates.headertext}>카테고리</CustomText>
                 <TouchableOpacity onPress={() => { onChangeCate(false) }}>
                     <Image style={cates.deletebtn} source={require('../../assets/images/comm/delete.png')} />
                 </TouchableOpacity>
@@ -30,7 +31,7 @@ const Cate = ({ onChangeCate, onChangeChoose }) => {
                         onPress={() => { onChangeChoose(category.name); onChangeCate(false) }}
                     >
                         <Image style={cates.listimg} source={category.img} />
-                        <Text style={cates.listtext}>{category.name}</Text>
+                        <CustomText style={cates.listtext}>{category.name}</CustomText>
                     </TouchableOpacity>
                 ))}
             </View>
@@ -38,31 +39,37 @@ const Cate = ({ onChangeCate, onChangeChoose }) => {
     )
 };
 
-const Post = ({ tag, title, text, time, likes, comments }) => (
-    <View style={styles.post_wrap}>
-        <Text style={styles.tag}>{tag}</Text>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.text}>{text}</Text>
-        <View style={styles.infobox}>
-            <View style={styles.info}>
-                <Image style={styles.infoimg} source={require('../../assets/images/comm/hart.png')} />
-                <Text style={styles.infotext}>{likes}</Text>
-            </View>
-            <View style={styles.info}>
-                <Image style={styles.infoimg} source={require('../../assets/images/comm/comment.png')} />
-                <Text style={styles.infotext}>{comments}</Text>
-            </View>
-            <Text style={styles.infotext}>{time}</Text>
+const Post = ({ tag, title, text, time, likes, comments }) => {
+    const navigation = useNavigation()
+
+    return (
+        <View style={styles.post_wrap}>
+            <TouchableOpacity onPress={() => {navigation.navigate('CommunityPost')}}>
+                <CustomText style={styles.tag}>{tag}</CustomText>
+                <CustomText style={styles.title}>{title}</CustomText>
+                <CustomText style={styles.text}>{text}</CustomText>
+                <View style={styles.infobox}>
+                    <View style={styles.info}>
+                        <Image style={styles.infoimg} source={require('../../assets/images/comm/hart.png')} />
+                        <CustomText style={styles.infotext}>{likes}</CustomText>
+                    </View>
+                    <View style={styles.info}>
+                        <Image style={styles.infoimg} source={require('../../assets/images/comm/comment.png')} />
+                        <CustomText style={styles.infotext}>{comments}</CustomText>
+                    </View>
+                    <CustomText style={styles.infotext}>{time}</CustomText>
+                </View>
+            </TouchableOpacity>
         </View>
-    </View>
-);
+    )
+}
 
 const CommHeader = ({ choose, setCate }) => {
     const navigation = useNavigation();
 
     return (
         <View style={styles.header}>
-            <Text style={styles.headertext}>{choose}</Text>
+            <CustomText style={styles.headertext}>{choose}</CustomText>
             <View style={styles.iconbox}>
                 <TouchableOpacity onPress={() => navigation.navigate('CommunitySearch')}>
                     <Image style={styles.icon} source={require('../../assets/images/comm/search.png')} />
@@ -89,10 +96,10 @@ const Write = ({ setGowrite, choose }) => {
     }, [title, content])
 
     const Submit = () => {
-        if (title === '' || content === '') {  
+        if (title === '' || content === '') {
             Alert.alert('오류', '내용을 모두 채워주세요', [{ text: '확인' }]);
             return;
-        } 
+        }
     }
 
     return (
@@ -101,11 +108,11 @@ const Write = ({ setGowrite, choose }) => {
                 <TouchableOpacity onPress={() => { setGowrite(false) }}>
                     <Image source={require('../../assets/images/comm/back.png')} />
                 </TouchableOpacity>
-                <Text style={writes.text}>글쓰기</Text>
+                <CustomText style={writes.text}>글쓰기</CustomText>
                 <TouchableOpacity style={full ? writes.submitbtnfull : writes.submitbtn}
                     onPress={() => { Submit() }}
                 >
-                    <Text style={writes.btntext}>등록</Text>
+                    <CustomText style={writes.btntext}>등록</CustomText>
                 </TouchableOpacity>
             </View>
             <View style={writes.writebox}>
